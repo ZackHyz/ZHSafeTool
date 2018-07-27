@@ -94,7 +94,7 @@
 		144B327E21056F7700104A5B /* SafeToolDemo */ = {
 			isa = PBXGroup;
 			children = (
-				144B329521056FB400104A5B /* SafeTool */,
+				144B329521056FB400104A5B /* ZHSafeTool */,
 				144B327F21056F7700104A5B /* AppDelegate.h */,
 				144B328021056F7700104A5B /* AppDelegate.m */,
 				144B328221056F7700104A5B /* ViewController.h */,
@@ -108,7 +108,7 @@
 			path = SafeToolDemo;
 			sourceTree = "<group>";
 		};
-		144B329521056FB400104A5B /* SafeTool */ = {
+		144B329521056FB400104A5B /* ZHSafeTool */ = {
 			isa = PBXGroup;
 			children = (
 				144B32C7210572DD00104A5B /* UIWebView+Exception.h */,
@@ -136,8 +136,8 @@
 				144B329721056FB400104A5B /* UIView+Exception.h */,
 				144B32AA21056FB400104A5B /* UIView+Exception.m */,
 			);
-			name = SafeTool;
-			path = ../../SafeTool;
+			name = ZHSafeTool;
+			path = ../../ZHSafeTool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
