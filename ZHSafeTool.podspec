@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
                    不用写一行代码，就能降低很多崩溃率，崩溃率可以降到万分之二以下。
-
+                    DESC
   s.homepage     = "http://EXAMPLE/ZHSafeTool"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
