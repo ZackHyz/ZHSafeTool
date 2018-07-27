@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                    不用写一行代码，就能降低很多崩溃率，崩溃率可以降到万分之二以下。
                     DESC
-  s.homepage     = "http://EXAMPLE/ZHSafeTool"
+  s.homepage     = "https://github.com/ZackHyz/ZHSafeTool.git"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -90,7 +90,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "ZHSafeTool/ZHSafeTool/*.{h,m}"
+  s.source_files  = "ZHSafeTool/*.{h,m}"
   #s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
