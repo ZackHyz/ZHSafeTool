@@ -29,6 +29,11 @@
     
     [a performSelector:@selector(aaaaaaa)];
     NSLog(@"%@",a);
+    
+    CGFloat width = 0;
+    CGRect frame = CGRectMake(0, 0, 11/width, INFINITY);
+    UIView *view;
+    view.frame = frame;
 }
 
 
