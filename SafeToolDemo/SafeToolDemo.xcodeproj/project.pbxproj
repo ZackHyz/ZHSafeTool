@@ -25,6 +25,7 @@
 		144B32C121056FB400104A5B /* NSObject+Exception.m in Sources */ = {isa = PBXBuildFile; fileRef = 144B32B121056FB400104A5B /* NSObject+Exception.m */; };
 		144B32C221056FB400104A5B /* NSDictionary+Exception.m in Sources */ = {isa = PBXBuildFile; fileRef = 144B32B221056FB400104A5B /* NSDictionary+Exception.m */; };
 		144B32C8210572DD00104A5B /* UIWebView+Exception.m in Sources */ = {isa = PBXBuildFile; fileRef = 144B32C6210572DD00104A5B /* UIWebView+Exception.m */; };
+		14C23ABA212BF63600CBA44B /* UITableView+Exception.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C23AB9212BF63600CBA44B /* UITableView+Exception.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,8 @@
 		144B32B321056FB400104A5B /* NSAttributedString+Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Exception.h"; sourceTree = "<group>"; };
 		144B32C6210572DD00104A5B /* UIWebView+Exception.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Exception.m"; sourceTree = "<group>"; };
 		144B32C7210572DD00104A5B /* UIWebView+Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Exception.h"; sourceTree = "<group>"; };
+		14C23AB8212BF63600CBA44B /* UITableView+Exception.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+Exception.h"; sourceTree = "<group>"; };
+		14C23AB9212BF63600CBA44B /* UITableView+Exception.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Exception.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +138,8 @@
 				144B32A521056FB400104A5B /* UICollectionView+Exception.m */,
 				144B329721056FB400104A5B /* UIView+Exception.h */,
 				144B32AA21056FB400104A5B /* UIView+Exception.m */,
+				14C23AB8212BF63600CBA44B /* UITableView+Exception.h */,
+				14C23AB9212BF63600CBA44B /* UITableView+Exception.m */,
 			);
 			name = ZHSafeTool;
 			path = ../../ZHSafeTool;
@@ -223,6 +228,7 @@
 				144B32BB21056FB400104A5B /* NSMutableString+Exception.m in Sources */,
 				144B32C121056FB400104A5B /* NSObject+Exception.m in Sources */,
 				144B32BE21056FB400104A5B /* NSMutableArray+Exception.m in Sources */,
+				14C23ABA212BF63600CBA44B /* UITableView+Exception.m in Sources */,
 				144B328F21056F7900104A5B /* main.m in Sources */,
 				144B328121056F7700104A5B /* AppDelegate.m in Sources */,
 			);
