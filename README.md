@@ -301,8 +301,21 @@ typedef BOOL (*GetFuc)(id, SEL);
 https://github.com/ZackHyz/ZHSafeTool
 
 
-# PS
-如果还有其他需求或者问题可以随时留言问我。
+
+-------------------------------------------------------
+# 8月29日更新1.1.0
+
+1.增加异常frame设置时候的防崩溃。
+
+2.对UITableView reloadSections 和 reloadRowsAtIndexPaths做输入参数校验。
+  对UICollectionView reloadSections 和 reloadItemsAtIndexPaths做输入参数校验。
+
+-------------------------------------------------------
+# 10月10日 
+10月的崩溃率重新稳定到了万分之二，因为中途加入新人挖了不少坑， 从1月开始崩溃率从千分之五的峰值降到了万分之二。
+
+
+![](https://user-gold-cdn.xitu.io/2018/10/10/1665c85387ebee1e?w=2254&h=818&f=png&s=219149)
 
 # 掘金原文
 
