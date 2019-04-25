@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ZHSafeTool"
-  s.version      = "1.1.0"
+  s.version      = "1.1.1"
   s.summary      = "不用写一行代码，就能降低很多崩溃率"
 
   # This description is used to generate tags and improve search results.
@@ -93,6 +93,19 @@ Pod::Spec.new do |s|
   s.source_files  = "ZHSafeTool/*.{h,m}"
   #s.exclude_files = "Classes/Exclude"
 
+  s.requires_arc =
+  ['ZHSafeTool/NSAttributedString+Exception.m',
+  'ZHSafeTool/NSMutableAttributedString+Exception.m',
+  'ZHSafeTool/NSMutableString+Exception.m',
+  'ZHSafeTool/NSObject+Exception.m',
+  'ZHSafeTool/NSObject+Swizzling.m',
+  'ZHSafeTool/NSString+Exception.m',
+  'ZHSafeTool/UICollectionView+Exception.m',
+  'ZHSafeTool/UITableView+Exception.m',
+  'ZHSafeTool/UIView+Exception.m',
+  'ZHSafeTool/UIWebView+Exception.m',
+
+  ]
   # s.public_header_files = "Classes/**/*.h"
 
 
@@ -129,7 +142,6 @@ Pod::Spec.new do |s|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-   s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
