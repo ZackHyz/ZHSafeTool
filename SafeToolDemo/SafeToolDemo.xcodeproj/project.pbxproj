@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142E333A23177D7100AE1FAF /* ZHSafeToolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 142E333923177D7100AE1FAF /* ZHSafeToolManager.m */; };
 		144B328121056F7700104A5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 144B328021056F7700104A5B /* AppDelegate.m */; };
 		144B328421056F7800104A5B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144B328321056F7800104A5B /* ViewController.m */; };
 		144B328721056F7800104A5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 144B328521056F7800104A5B /* Main.storyboard */; };
@@ -24,11 +25,12 @@
 		144B32C021056FB400104A5B /* NSObject+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 144B32AF21056FB400104A5B /* NSObject+Swizzling.m */; };
 		144B32C121056FB400104A5B /* NSObject+Exception.m in Sources */ = {isa = PBXBuildFile; fileRef = 144B32B121056FB400104A5B /* NSObject+Exception.m */; };
 		144B32C221056FB400104A5B /* NSDictionary+Exception.m in Sources */ = {isa = PBXBuildFile; fileRef = 144B32B221056FB400104A5B /* NSDictionary+Exception.m */; };
-		144B32C8210572DD00104A5B /* UIWebView+Exception.m in Sources */ = {isa = PBXBuildFile; fileRef = 144B32C6210572DD00104A5B /* UIWebView+Exception.m */; };
 		14C23ABA212BF63600CBA44B /* UITableView+Exception.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C23AB9212BF63600CBA44B /* UITableView+Exception.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		142E333823177D7100AE1FAF /* ZHSafeToolManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHSafeToolManager.h; sourceTree = "<group>"; };
+		142E333923177D7100AE1FAF /* ZHSafeToolManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHSafeToolManager.m; sourceTree = "<group>"; };
 		144B327C21056F7700104A5B /* SafeToolDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeToolDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		144B327F21056F7700104A5B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		144B328021056F7700104A5B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -61,8 +63,6 @@
 		144B32B121056FB400104A5B /* NSObject+Exception.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Exception.m"; sourceTree = "<group>"; };
 		144B32B221056FB400104A5B /* NSDictionary+Exception.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Exception.m"; sourceTree = "<group>"; };
 		144B32B321056FB400104A5B /* NSAttributedString+Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Exception.h"; sourceTree = "<group>"; };
-		144B32C6210572DD00104A5B /* UIWebView+Exception.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Exception.m"; sourceTree = "<group>"; };
-		144B32C7210572DD00104A5B /* UIWebView+Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Exception.h"; sourceTree = "<group>"; };
 		14C23AB8212BF63600CBA44B /* UITableView+Exception.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+Exception.h"; sourceTree = "<group>"; };
 		14C23AB9212BF63600CBA44B /* UITableView+Exception.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Exception.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,8 +114,6 @@
 		144B329521056FB400104A5B /* ZHSafeTool */ = {
 			isa = PBXGroup;
 			children = (
-				144B32C7210572DD00104A5B /* UIWebView+Exception.h */,
-				144B32C6210572DD00104A5B /* UIWebView+Exception.m */,
 				144B32AD21056FB400104A5B /* NSArray+Exception.h */,
 				144B329D21056FB400104A5B /* NSArray+Exception.m */,
 				144B32B321056FB400104A5B /* NSAttributedString+Exception.h */,
@@ -140,6 +138,8 @@
 				144B32AA21056FB400104A5B /* UIView+Exception.m */,
 				14C23AB8212BF63600CBA44B /* UITableView+Exception.h */,
 				14C23AB9212BF63600CBA44B /* UITableView+Exception.m */,
+				142E333823177D7100AE1FAF /* ZHSafeToolManager.h */,
+				142E333923177D7100AE1FAF /* ZHSafeToolManager.m */,
 			);
 			name = ZHSafeTool;
 			path = ../../ZHSafeTool;
@@ -215,7 +215,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				144B32C8210572DD00104A5B /* UIWebView+Exception.m in Sources */,
 				144B32C221056FB400104A5B /* NSDictionary+Exception.m in Sources */,
 				144B32BA21056FB400104A5B /* UICollectionView+Exception.m in Sources */,
 				144B32C021056FB400104A5B /* NSObject+Swizzling.m in Sources */,
@@ -228,6 +227,7 @@
 				144B32BB21056FB400104A5B /* NSMutableString+Exception.m in Sources */,
 				144B32C121056FB400104A5B /* NSObject+Exception.m in Sources */,
 				144B32BE21056FB400104A5B /* NSMutableArray+Exception.m in Sources */,
+				142E333A23177D7100AE1FAF /* ZHSafeToolManager.m in Sources */,
 				14C23ABA212BF63600CBA44B /* UITableView+Exception.m in Sources */,
 				144B328F21056F7900104A5B /* main.m in Sources */,
 				144B328121056F7700104A5B /* AppDelegate.m in Sources */,
@@ -372,6 +372,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SLPQ69Q82G;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"DISABLE_SAFETOOL=1",
+				);
 				INFOPLIST_FILE = SafeToolDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

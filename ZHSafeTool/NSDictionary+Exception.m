@@ -9,6 +9,8 @@
 #import "NSDictionary+Exception.h"
 #import "NSObject+Swizzling.h"
 
+#ifndef DISABLE_SAFETOOL
+
 @implementation NSDictionary (Exception)
 
 + (void)load {
@@ -26,6 +28,7 @@
     NSUInteger rightCount = 0;
     for (NSUInteger i = 0; i < count; i++) {
         if (!(keys[i] && objects[i])) {
+            [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
             break;
         }else{
             rightCount++;
@@ -36,6 +39,7 @@
 
 - (void)replace_setObject:(id)object forKey:(id<NSCopying>)key{
     if ((!object) || (!key)) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
       return;
     }
     return [self replace_setObject:object forKey:key];
@@ -43,9 +47,12 @@
 
 - (void)replace_removeObjectForKey:(id)key{
     if (!key) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return;
     }
     return [self replace_removeObjectForKey:key];
 }
 
 @end
+
+#endif

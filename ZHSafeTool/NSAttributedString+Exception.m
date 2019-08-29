@@ -9,6 +9,8 @@
 #import "NSAttributedString+Exception.h"
 #import "NSObject+Swizzling.h"
 
+#ifndef DISABLE_SAFETOOL
+
 @implementation NSAttributedString (Exception)
 
 
@@ -24,8 +26,11 @@
 
 -(instancetype)alert_replaceInitWithString:(NSString*)aString{
     if (!aString) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return nil;
     }
     return [self alert_replaceInitWithString:aString];
 }
 @end
+
+#endif

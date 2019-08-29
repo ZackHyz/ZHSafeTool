@@ -9,6 +9,8 @@
 #import "UICollectionView+Exception.h"
 #import "NSObject+Swizzling.h"
 
+#ifndef DISABLE_SAFETOOL
+
 @implementation UICollectionView (Exception)
 
 + (void)load {
@@ -29,9 +31,11 @@
 
 - (void)replace_scrollToItemAtIndexPath:(NSIndexPath *)indexPath atScrollPosition:(UICollectionViewScrollPosition)scrollPosition animated:(BOOL)animated{
     if (indexPath.section >= self.numberOfSections) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return;
     }
     if (indexPath.row >= [self numberOfItemsInSection:indexPath.section]) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return;
     }
     return [self replace_scrollToItemAtIndexPath:indexPath atScrollPosition:scrollPosition animated:animated];
@@ -43,6 +47,8 @@
         UICollectionViewCell *cell = [self cellForItemAtIndexPath:index];
         if (cell) {
             [tempIndexPaths addObject:index];
+        } else {
+            [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         }
     }
     return tempIndexPaths;
@@ -69,6 +75,8 @@
     [sections enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
         if (idx<sectionsCount) {
             [tempSections addIndex:idx];
+        } else {
+            [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         }
     }];
     return tempSections;
@@ -89,3 +97,6 @@
 
 
 @end
+
+
+#endif

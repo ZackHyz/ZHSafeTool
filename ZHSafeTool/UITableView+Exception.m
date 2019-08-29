@@ -9,6 +9,8 @@
 #import "UITableView+Exception.h"
 #import "NSObject+Swizzling.h"
 
+#ifndef DISABLE_SAFETOOL
+
 @implementation UITableView (Exception)
 
 
@@ -32,6 +34,8 @@
         UITableViewCell *cell = [self cellForRowAtIndexPath:index];
         if (cell) {
             [tempIndexPaths addObject:index];
+        } else {
+            [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         }
     }
     return tempIndexPaths;
@@ -58,6 +62,8 @@
     [sections enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
         if (idx<sectionsCount) {
             [tempSections addIndex:idx];
+        } else {
+            [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         }
     }];
     return tempSections;
@@ -76,3 +82,5 @@
     }
 }
 @end
+
+#endif

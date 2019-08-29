@@ -9,6 +9,7 @@
 #import "NSMutableArray+Exception.h"
 #import "NSObject+Swizzling.h"
 
+#ifndef DISABLE_SAFETOOL
 @implementation NSMutableArray (Exception)
 
 + (void)load{
@@ -31,6 +32,7 @@
 
 - (id)replace_objectAtIndex:(NSInteger)index{
     if (index >= self.count || index < 0) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return nil;
     }
     return [self replace_objectAtIndex:index];
@@ -38,9 +40,11 @@
 
 - (void)replace_insertObject:(id)object atIndex:(NSInteger)index{
     if (index > self.count || index < 0) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return ;
     }
     if (!object) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return;
     }
     return [self replace_insertObject:object atIndex:index];
@@ -48,9 +52,11 @@
 
 - (void)replace_setObject:(id)object atIndexedSubscript:(NSInteger)index{
     if (index > self.count || index < 0) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return ;
     }
     if (!object) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return;
     }
     return [self replace_setObject:object atIndexedSubscript:index];
@@ -58,9 +64,11 @@
 
 - (void)replace_replaceObjectAtIndex:(NSInteger)index withObject:(id)anObject{
     if (index >= self.count || index < 0) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return ;
     }
     if (!anObject) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return;
     }
     return [self replace_replaceObjectAtIndex:index withObject:anObject];
@@ -69,6 +77,7 @@
 
 - (void)replace_removeObjectAtIndex:(NSInteger)index{
     if (index >= self.count || index < 0) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return ;
     }
     return [self replace_removeObjectAtIndex:index];
@@ -76,12 +85,15 @@
 
 - (void)replace_removeObjectsInRange:(NSRange)range {
     if (range.location > self.count) {
+         [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
         return;
     }
     if (range.length > self.count) {
+         [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
         return;
     }
     if ((range.location + range.length) > self.count) {
+         [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
         return;
     }
     return [self replace_removeObjectsInRange:range];
@@ -89,22 +101,27 @@
 
 - (void)replace_removeObject:(id)anObject inRange:(NSRange)range{
     if (range.location > self.count) {
+         [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
         return;
     }
     if (range.length > self.count) {
+         [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
         return;
     }
     if ((range.location + range.length) > self.count) {
+         [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
         return;
     }
     if (!anObject){
+         [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
         return;
     }
     return [self replace_removeObject:anObject inRange:range];
 }
 
 - (id)replace_objectAtIndexedSubscript:(NSInteger)index{
-    if (index >= self.count || index < 0) {    
+    if (index >= self.count || index < 0) {
+         [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
         return nil;
     }
     return [self replace_objectAtIndexedSubscript:index];
@@ -115,10 +132,14 @@
     NSRange newRange = range;
     if (newRange.location >= self.count ) {
         newRange.location = 0;
+         [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
     }
     if (newRange.location + newRange.length > self.count) {
         newRange.length = self.count - newRange.location;
+         [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
     }
     return [self replace_subarrayWithRange:newRange];
 }
 @end
+
+#endif

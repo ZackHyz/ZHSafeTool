@@ -9,6 +9,7 @@
 #import "NSArray+Exception.h"
 #import "NSObject+Swizzling.h"
 
+#ifndef DISABLE_SAFETOOL
 @implementation NSArray (Exception)
 
 + (void)load{
@@ -33,28 +34,33 @@
 }
 
 - (id)replace_NSArray0_ObjectAtIndex:(NSInteger)index{
+    [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
     return nil;
 }
 
 - (id)replace_NSSingleObjectArrayI_objectAtIndex:(NSInteger)index{
     if (index >= self.count || index < 0) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
         return nil;
     }
     return [self replace_NSSingleObjectArrayI_objectAtIndex:index];
 }
 - (id)replace_NSArrayI_objectAtIndex:(NSInteger)index{
     if (index >= self.count || index < 0) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
         return nil;
     }
     return [self replace_NSArrayI_objectAtIndex:index];
 }
 
 -(id)replace_NSArray0_objectAtIndexedSubscript:(NSUInteger)index{
+    [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
     return nil;
 }
 
 -(id)replace_NSSingleObjectArrayI_objectAtIndexedSubscript:(NSInteger)index{
     if (index >= self.count || index < 0) {
+    [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
         return nil;
     }
     return [self replace_NSSingleObjectArrayI_objectAtIndexedSubscript:index];
@@ -62,6 +68,7 @@
 
 -(id)replace_NSArrayI_objectAtIndexedSubscript:(NSInteger)index{
     if (index >= self.count || index < 0) {
+    [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
         return nil;
     }
     return [self replace_NSArrayI_objectAtIndexedSubscript:index];
@@ -75,9 +82,11 @@
     NSRange newRange = range;
     if (range.location < 0) {
         newRange.location = 0;
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
     }
     if (newRange.location + newRange.length > self.count) {
         newRange.length = self.count - newRange.location;
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
     }
     return [self replace_NSSingleObjectArrayI_subarrayWithRange:newRange];
 }
@@ -86,12 +95,16 @@
     NSRange newRange = range;
     if (range.location < 0) {
         newRange.location = 0;
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
     }
     if (newRange.location + newRange.length > self.count) {
         newRange.length = self.count - newRange.location;
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];;
     }
     return [self replace_NSArrayI_subarrayWithRange:newRange];
 }
 
 
 @end
+
+#endif

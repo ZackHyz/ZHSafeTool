@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
+#import "ZHSafeToolManager.h"
 
 @interface NSObject (Swizzling)
 

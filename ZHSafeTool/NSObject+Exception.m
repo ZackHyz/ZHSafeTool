@@ -9,6 +9,8 @@
 #import "NSObject+Exception.h"
 #import "NSObject+Swizzling.h"
 
+#ifndef DISABLE_SAFETOOL
+
 
 @interface FakeForwardTargetObject : NSObject
 
@@ -26,7 +28,7 @@ id fakeIMP(id sender,SEL sel,...){
 {
     if (self = [super init]) {
         if(class_addMethod([self class], aSelector, (IMP)fakeIMP, NULL)) {
-            NSLog(@"add Fake Selector:[instance %@]", NSStringFromSelector(aSelector));
+//            NSLog(@"add Fake Selector:[instance %@]", NSStringFromSelector(aSelector));
         }
     }
     return self;
@@ -73,10 +75,12 @@ id fakeIMP(id sender,SEL sel,...){
             return szTarget;
         }
     }
-    
+    [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"[%@] add Fake Selector [%@]",NSStringFromClass([aTarget class]), NSStringFromSelector(aSelector))];
     FakeForwardTargetObject *fakeTaget = [[FakeForwardTargetObject alloc] initWithSelector:aSelector];
     return fakeTaget;
 }
 
 
 @end
+
+#endif

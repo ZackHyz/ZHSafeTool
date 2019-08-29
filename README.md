@@ -319,6 +319,13 @@ https://github.com/ZackHyz/ZHSafeTool
 解决iOS 8&9弹出键盘按Home键崩溃的问题。
 
 
+-------------------------------------------------------
+
+# 2019年8月29日 
+1. 增加Debug宏（DISABLE_SAFETOOL）禁用防崩库。
+2. 增加catch崩溃时候的代码片段回调。
+3. 移除 UIWebView+Exception 防止审核不通过。
+
 ![](https://user-gold-cdn.xitu.io/2018/10/10/1665c85387ebee1e?w=2254&h=818&f=png&s=219149)
 
 # 掘金原文

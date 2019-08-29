@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "UIWebView+Exception.h"
+#import "ZHSafeToolManager.h"
 
 #define kNotification [NSNotificationCenter defaultCenter]
 
@@ -34,6 +34,17 @@
     CGRect frame = CGRectMake(0, 0, 11/width, INFINITY);
     UIView *view;
     view.frame = frame;
+    
+    
+    NSMutableArray *b = [NSMutableArray new];
+    [b addObject:@"1"];
+    [b addObject:@"2"];
+    [b subarrayWithRange:NSMakeRange(-1, 3)];
+    
+    [[ZHSafeToolManager shareManager]addWarningObserverUsingBlock:^(NSString * _Nonnull warning) {
+        NSLog(@"%@", warning);
+    }];
+    
 }
 
 
@@ -55,28 +66,28 @@
                         object:nil];
 }
 
--(void)enableGL{
-    [self enableGL:YES];
-}
-
--(void)disableGL{
-    [self enableGL:NO];
-}
--(void)enableGL:(BOOL)bEnable{
-    //在后台的时候关掉WebGL防止随机崩溃
-    if([self.webView enableGL:bEnable]){
-        NSLog(@"enable GL :%d",bEnable);
-    }else{
-        NSLog(@"Can't enable GL :%d",bEnable);
-    }
-}
-
--(UIWebView *)webView
-{
-    if (!_webView) {
-        _webView = [[UIWebView alloc] init];
-    }
-    return _webView;
-}
+//-(void)enableGL{
+//    [self enableGL:YES];
+//}
+//
+//-(void)disableGL{
+//    [self enableGL:NO];
+//}
+//-(void)enableGL:(BOOL)bEnable{
+//    //在后台的时候关掉WebGL防止随机崩溃
+//    if([self.webView enableGL:bEnable]){
+//        NSLog(@"enable GL :%d",bEnable);
+//    }else{
+//        NSLog(@"Can't enable GL :%d",bEnable);
+//    }
+//}
+//
+//-(UIWebView *)webView
+//{
+//    if (!_webView) {
+//        _webView = [[UIWebView alloc] init];
+//    }
+//    return _webView;
+//}
 
 @end

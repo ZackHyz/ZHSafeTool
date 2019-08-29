@@ -9,6 +9,8 @@
 #import "NSMutableAttributedString+Exception.h"
 #import "NSObject+Swizzling.h"
 
+#ifndef DISABLE_SAFETOOL
+
 @implementation NSMutableAttributedString (Exception)
 
 + (void)load{
@@ -24,9 +26,11 @@
 
 - (void)alert_replaceCharactersInRange:(NSRange)range withString:(NSString *)aString {
     if ((range.location + range.length) > self.length) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return;
     }
     if (!aString) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return;
     }
     return [self alert_replaceCharactersInRange:range withString:aString];
@@ -34,8 +38,11 @@
 
 -(instancetype)alert_replaceInitWithString:(NSString*)aString{
     if (!aString) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return nil;
     }
     return [self alert_replaceInitWithString:aString];
 }
 @end
+
+#endif

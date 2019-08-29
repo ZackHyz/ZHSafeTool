@@ -9,6 +9,8 @@
 #import "NSString+Exception.h"
 #import "NSObject+Swizzling.h"
 
+#ifndef DISABLE_SAFETOOL
+
 @implementation NSString (Exception)
 + (void)load{
     static dispatch_once_t onceToken;
@@ -46,12 +48,15 @@
 
 - (NSString *)replace_NSCFConstantString_substringWithRange:(NSRange)range{
     if (range.location > self.length) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return nil;
     }
     if (range.length > self.length) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return nil;
     }
     if ((range.location + range.length) > self.length) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return nil;
     }
     return [self replace_NSCFConstantString_substringWithRange:range];
@@ -60,9 +65,11 @@
 
 - (NSRange)replace_NSCFConstantString_rangeOfString:(NSString *)searchString options:(NSStringCompareOptions)mask range:(NSRange)rangeOfReceiverToSearch locale:(nullable NSLocale *)locale{
     if (!searchString) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return NSMakeRange(0, 0);
     }
     if ((rangeOfReceiverToSearch.location + rangeOfReceiverToSearch.length) > self.length) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return NSMakeRange(0, 0);
     }
     return [self replace_NSCFConstantString_rangeOfString:searchString options:mask range:rangeOfReceiverToSearch locale:locale];
@@ -83,12 +90,15 @@
 
 - (NSString *)replace_NSTaggedPointerString_substringWithRange:(NSRange)range{
     if (range.location > self.length) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return nil;
     }
     if (range.length > self.length) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return nil;
     }
     if ((range.location + range.length) > self.length) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return nil;
     }
     return [self replace_NSTaggedPointerString_substringWithRange:range];
@@ -97,9 +107,11 @@
 
 - (NSRange)replace_NSTaggedPointerString_rangeOfString:(NSString *)searchString options:(NSStringCompareOptions)mask range:(NSRange)rangeOfReceiverToSearch locale:(nullable NSLocale *)locale{
     if (!searchString) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return NSMakeRange(0, 0);
     }
     if ((rangeOfReceiverToSearch.location + rangeOfReceiverToSearch.length) > self.length) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return NSMakeRange(0, 0);
     }
     return [self replace_NSTaggedPointerString_rangeOfString:searchString options:mask range:rangeOfReceiverToSearch locale:locale];
@@ -107,6 +119,7 @@
 
 - (instancetype)replace_initWithString:(NSString *)aString{
     if (aString == nil) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return nil;
     }
     return [self replace_initWithString:aString];
@@ -114,12 +127,14 @@
 
 - (BOOL)replace_hasPrefix:(NSString *)str{
     if (str == nil) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return NO;
     }
     return [self replace_hasPrefix:str];
 }
 - (BOOL)replace_hasSuffix:(NSString *)str{
     if (str == nil) {
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         return NO;
     }
     return [self replace_hasSuffix:str];
@@ -127,6 +142,7 @@
 }
 
 
-
-
 @end
+
+
+#endif

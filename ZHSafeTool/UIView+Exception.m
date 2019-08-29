@@ -9,6 +9,8 @@
 #import "UIView+Exception.h"
 #import "NSObject+Swizzling.h"
 
+#ifndef DISABLE_SAFETOOL
+
 @implementation UIView (Exception)
 
 + (void)load {
@@ -28,6 +30,7 @@
     if ([NSThread isMainThread]) {
         return [self replace_setNeedsLayout];
     }else{
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         dispatch_async(dispatch_get_main_queue(), ^{
             return [self replace_setNeedsLayout];
         });
@@ -38,6 +41,7 @@
     if ([NSThread isMainThread]) {
         return [self replace_setNeedsDisplay];
     }else{
+        [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
         dispatch_async(dispatch_get_main_queue(), ^{
             return [self replace_setNeedsDisplay];
         });
@@ -52,6 +56,7 @@
         frame.size.height == INFINITY||frame.size.height <0 || isnan(frame.size.height)) {
         return YES;
     }
+    [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
     return NO;
 }
 -(void)replace_setFrame:(CGRect)frame{
@@ -71,3 +76,5 @@
 }
 
 @end
+
+#endif
