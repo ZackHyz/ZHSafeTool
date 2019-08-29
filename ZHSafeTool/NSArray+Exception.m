@@ -23,6 +23,11 @@
             [objc_getClass("__NSArray0") swizzleMethod:@selector(objectAtIndexedSubscript:) swizzledSelector:@selector(replace_NSArray0_objectAtIndexedSubscript:)];
             [objc_getClass("__NSSingleObjectArrayI") swizzleMethod:@selector(objectAtIndexedSubscript:) swizzledSelector:@selector(replace_NSSingleObjectArrayI_objectAtIndexedSubscript:)];
             [objc_getClass("__NSArrayI") swizzleMethod:@selector(objectAtIndexedSubscript:) swizzledSelector:@selector(replace_NSArrayI_objectAtIndexedSubscript:)];
+            
+            
+            [objc_getClass("__NSArray0") swizzleMethod:@selector(subarrayWithRange:) swizzledSelector:@selector(replace_NSArray0_subarrayWithRange:)];
+            [objc_getClass("__NSSingleObjectArrayI") swizzleMethod:@selector(subarrayWithRange:) swizzledSelector:@selector(replace_NSSingleObjectArrayI_subarrayWithRange:)];
+            [objc_getClass("__NSArrayI") swizzleMethod:@selector(subarrayWithRange:) swizzledSelector:@selector(replace_NSArrayI_subarrayWithRange:)];
         }
     });
 }
@@ -61,4 +66,32 @@
     }
     return [self replace_NSArrayI_objectAtIndexedSubscript:index];
 }
+    
+- (NSArray<id> *)replace_NSArray0_subarrayWithRange:(NSRange)range {
+    return nil;
+}
+    
+- (NSArray<id> *)replace_NSSingleObjectArrayI_subarrayWithRange:(NSRange)range {
+    NSRange newRange = range;
+    if (range.location < 0) {
+        newRange.location = 0;
+    }
+    if (newRange.location + newRange.length > self.count) {
+        newRange.length = self.count - newRange.location;
+    }
+    return [self replace_NSSingleObjectArrayI_subarrayWithRange:newRange];
+}
+
+- (NSArray<id> *)replace_NSArrayI_subarrayWithRange:(NSRange)range {
+    NSRange newRange = range;
+    if (range.location < 0) {
+        newRange.location = 0;
+    }
+    if (newRange.location + newRange.length > self.count) {
+        newRange.length = self.count - newRange.location;
+    }
+    return [self replace_NSArrayI_subarrayWithRange:newRange];
+}
+
+
 @end

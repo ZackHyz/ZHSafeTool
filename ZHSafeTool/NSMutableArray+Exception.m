@@ -23,6 +23,8 @@
             [objc_getClass("__NSArrayM") swizzleMethod:@selector(removeObjectsInRange:) swizzledSelector:@selector(replace_removeObjectsInRange:)];
             [objc_getClass("__NSArrayM") swizzleMethod:@selector(removeObject:inRange:) swizzledSelector:@selector(replace_removeObject:inRange:)];
             [objc_getClass("__NSArrayM") swizzleMethod:@selector(objectAtIndexedSubscript:) swizzledSelector:@selector(replace_objectAtIndexedSubscript:)];
+            
+            [objc_getClass("__NSArrayM") swizzleMethod:@selector(subarrayWithRange:) swizzledSelector:@selector(replace_subarrayWithRange:)];
         }
     });
 }
@@ -108,4 +110,15 @@
     return [self replace_objectAtIndexedSubscript:index];
 }
 
+    
+- (NSArray<id> *)replace_subarrayWithRange:(NSRange)range {
+    NSRange newRange = range;
+    if (newRange.location >= self.count ) {
+        newRange.location = 0;
+    }
+    if (newRange.location + newRange.length > self.count) {
+        newRange.length = self.count - newRange.location;
+    }
+    return [self replace_subarrayWithRange:newRange];
+}
 @end
