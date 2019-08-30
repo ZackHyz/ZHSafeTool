@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ZHSafeTool"
-  s.version      = "1.2.0"
+  s.version      = "1.2.1"
   s.summary      = "不用写一行代码，就能降低很多崩溃率"
 
   # This description is used to generate tags and improve search results.

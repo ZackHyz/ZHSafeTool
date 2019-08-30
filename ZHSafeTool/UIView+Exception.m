@@ -56,7 +56,7 @@
         frame.size.height == INFINITY||frame.size.height <0 || isnan(frame.size.height)) {
         return YES;
     }
-    [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
+//    [[ZHSafeToolManager shareManager]reportWarning:ZHSafeToolWarn(@"Exception")];
     return NO;
 }
 -(void)replace_setFrame:(CGRect)frame{
